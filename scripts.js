@@ -1,7 +1,23 @@
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyAu5Bg9tziYzdU14HJXome7F2OBPXsJ8no",
+    authDomain: "myadssite-24b63.firebaseapp.com",
+    projectId: "myadssite-24b63",
+    storageBucket: "myadssite-24b63.appspot.com",
+    messagingSenderId: "23382315564",
+    appId: "1:23382315564:web:70dd8a25fc95b7d0cf3789",
+    measurementId: "G-PRK2QEJKPP"
+};
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const analytics = firebase.getAnalytics(app);
+const database = firebase.database();
+
 let currentCity = '';
 let currentTheme = '';
 
-// Загружаем объявления из Firebase
+// Загрузка объявлений из Firebase
 function loadAds() {
     const dbRef = firebase.database().ref();
     dbRef.on('value', (snapshot) => {
@@ -10,7 +26,7 @@ function loadAds() {
     });
 }
 
-// Сохраняем объявление в Firebase
+// Сохранение объявления в Firebase
 function saveAd() {
     const title = document.getElementById('ad-title').value;
     const description = document.getElementById('ad-description').value;
@@ -35,7 +51,7 @@ function saveAd() {
     }
 }
 
-// Показываем объявления в разделе "Смотреть объявления"
+// Отображение объявлений в разделе "Смотреть объявления"
 function displayAds(ads) {
     const adsContainer = document.getElementById('ads-container');
     adsContainer.innerHTML = '';
@@ -101,6 +117,9 @@ function showAds() {
 }
 
 // Возврат к выбору тем
+function goBackTo### Обновленный `scripts.js` (продолжение):
+
+```javascript
 function goBackToThemes() {
     document.getElementById('question').style.display = 'none';
     document.getElementById('theme-options').style.display = 'none';
