@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAu5Bg9tziYzdU14HJXome7F2OBPXsJ8no",
+  	    authDomain: "myadssite-24b63.firebaseapp.com",
+            projectId: "myadssite-24b63",
+            storageBucket: "myadssite-24b63.appspot.com",
+            messagingSenderId: "23382315564",
+            appId: "1:23382315564:web:70dd8a25fc95b7d0cf3789",
+            measurementId: "G-PRK2QEJKPP"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 <body>
     <h1>Выберите город</h1>
