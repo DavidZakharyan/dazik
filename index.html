@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор города и тематики</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div id="theme-selection">
+            <h1>Выбери свой город и тематику для дальнейшей публикации либо нахождения объявлений!</h1>
+            <select id="city-dropdown" onchange="filterCity()">
+                <option value="Москва">Москва</option>
+                <option value="Санкт-Петербург">Санкт-Петербург</option>
+                <option value="Новосибирск">Новосибирск</option>
+                <option value="Екатеринбург">Екатеринбург</option>
+                <option value="Казань">Казань</option>
+                <option value="Нижний Новгород">Нижний Новгород</option>
+                <option value="Красноярск">Красноярск</option>
+                <option value="Челябинск">Челябинск</option>
+                <option value="Самара">Самара</option>
+                <option value="Уфа">Уфа</option>
+                <option value="Ростов-на-Дону">Ростов-на-Дону</option>
+                <option value="Краснодар">Краснодар</option>
+                <option value="Омск">Омск</option>
+                <option value="Воронеж">Воронеж</option>
+                <option value="Пермь">Пермь</option>
+                <option value="Волгоград">Волгоград</option>
+            </select>
+            <div id="themes">
+                <button onclick="selectTheme('Дроповские карты')">Дроповские карты</button>
+                <button onclick="selectTheme('Работа')">Работа</button>
+                <button onclick="selectTheme('Техника')">Техника</button>
+                <button onclick="selectTheme('Одежда')">Одежда</button>
+                <button onclick="selectTheme('Процессинг')">Процессинг</button>
+                <button onclick="selectTheme('Реклама')">Реклама</button>
+                <button onclick="selectTheme('Машины')">Машины</button>
+                <button onclick="selectTheme('Задать вопрос')">Задать вопрос</button>
+            </div>
+        </div>
+
+        <div id="question" style="display: none;">
+            <h1>По всем вопросам обращаться @projectsAGadm</h1>
+            <button onclick="goBackToThemes()">Назад</button>
+        </div>
+
+        <div id="theme-options" style="display: none;">
+            <button onclick="showCreateAd()">Создать объявление</button>
+            <button onclick="showAds()">Смотреть объявления</button>
+            <button onclick="optionSelected('Отзывы')">Отзывы</button>
+            <button onclick="goBackToThemes()">Назад</button>
+        </div>
+
+        <div id="create-ad" style="display: none;">
+            <h1>Создать объявление</h1>
+            <form id="ad-form">
+                <label>Укажите название вашей услуги:</label>
+                <input type="text" id="ad-title" required>
+                <label>Укажите описание услуги:</label>
+                <textarea id="ad-description" required></textarea>
+                <label>Напишите ваш Username в формате @username, либо номер телефона:</label>
+                <input type="text" id="ad-contact" required>
+                <label>Укажите стоимость вашей услуги (только цифры в рублях):</label>
+                <input type="number" id="ad-price" required>
+                <button type="button" onclick="saveAd()">Сохранить</button>
+            </form>
+            <button onclick="goBackToThemeOptions()">Назад</button>
+        </div>
+
+        <div id="view-ads" style="display: none;">
+            <h1>Объявления</h1>
+            <div id="ads-container"></div>
+            <button onclick="goBackToThemeOptions()">Назад</button>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
