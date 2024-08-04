@@ -17,8 +17,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-let currentCity = '';  
-let currentTheme = ''; 
+let currentCity = '';
+let currentTheme = '';
+
+let ads = {};
 
 // Загрузка объявлений из Firebase
 function loadAds() {
@@ -91,11 +93,16 @@ function deleteAd(key, index) {
 // Обновляет текущий выбранный город и отображает соответствующие темы
 function filterCity() {
     currentCity = document.getElementById('city-dropdown').value;
-    document.getElementById('theme-selection').style.display = 'block';
-    document.getElementById('theme-options').style.display = 'none';
-    document.getElementById('create-ad').style.display = 'none';
-    document.getElementById('view-ads').style.display = 'none';
-    alert('Вы выбрали город: ' + currentCity);
+    console.log('Выбранный город:', currentCity); // Добавлено для отладки
+    if (currentCity) {
+        document.getElementById('theme-selection').style.display = 'block';
+        document.getElementById('theme-options').style.display = 'none';
+        document.getElementById('create-ad').style.display = 'none';
+        document.getElementById('view-ads').style.display = 'none';
+        alert('Вы выбрали город: ' + currentCity);
+    } else {
+        document.getElementById('theme-selection').style.display = 'none';
+    }
 }
 
 // Устанавливает текущую тему и отображает соответствующие опции
