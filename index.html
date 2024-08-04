@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js"></script>
+    <script type="module" src="scripts.js"></script>
 </head>
 <body>
     <h1>Выберите город</h1>
@@ -72,7 +77,5 @@
         <div id="ads-container"></div>
         <button onclick="goBackToThemeOptions()">Назад</button>
     </div>
-
-    <script src="scripts.js"></script>
 </body>
 </html>
