@@ -5,11 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-analytics.js"></script>
-    <script type="module" src="scripts.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAu5Bg9tziYzdU14HJXome7F2OBPXsJ8no",
+            authDomain: "myadssite-24b63.firebaseapp.com",
+            databaseURL: "https://myadssite-24b63-default-rtdb.firebaseio.com/",
+            projectId: "myadssite-24b63",
+            storageBucket: "myadssite-24b63.appspot.com",
+            messagingSenderId: "23382315564",
+            appId: "1:23382315564:web:70dd8a25fc95b7d0cf3789",
+            measurementId: "G-PRK2QEJKPP"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 <body>
     <h1>Выберите город</h1>
@@ -48,30 +63,40 @@
     <div id="theme-options" style="display:none;">
         <button onclick="showCreateAd()">Создать объявление</button>
         <button onclick="showAds()">Смотреть объявления</button>
-        <button onclick="optionSelected('Отзывы')">Отзывы</button>
         <button onclick="goBackToThemes()">Назад</button>
     </div>
     
     <div id="question" style="display:none;">
         <p>По всем вопросам обращаться @projectsAGadm</p>
+        <button onclick="goBackToThemes()">Назад</button>
     </div>
     
     <div id="create-ad" style="display:none;">
         <h2>Создать объявление</h2>
         <form id="ad-form">
-            <input type="text" id="ad-title" placeholder="Название"><br>
-            <textarea id="ad-description" placeholder="Описание"></textarea><br>
-            <input type="text" id="ad-contact" placeholder="Контактная информация"><br>
-            <input type="number" id="ad-price" placeholder="Цена"><br>
-            <button type="button" onclick="saveAd()">Сохранить объявление</button>
+            <label>Укажите название вашей услуги</label>
+            <input type="text" id="ad-title" required>
+            <br>
+            <label>Укажите описание услуги</label>
+            <textarea id="ad-description" required></textarea>
+            <br>
+            <label>Напишите ваш Username в формате @username</label>
+            <input type="text" id="ad-contact" required>
+            <br>
+            <label>Укажите стоимость вашей услуги (только цифры в рублях)</label>
+            <input type="number" id="ad-price" required>
+            <br>
+            <button type="button" onclick="saveAd()">Сохранить</button>
         </form>
         <button onclick="goBackToThemeOptions()">Назад</button>
     </div>
     
     <div id="view-ads" style="display:none;">
-        <h2>Смотреть объявления</h2>
+        <h2>Объявления</h2>
         <div id="ads-container"></div>
         <button onclick="goBackToThemeOptions()">Назад</button>
     </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
